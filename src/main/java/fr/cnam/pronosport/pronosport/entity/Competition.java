@@ -15,6 +15,13 @@ public class Competition {
     public Competition() {
     }
 
+    public Competition(int id, String nom, String type, String zone) {
+        this.id = id;
+        this.nom = nom;
+        this.type = type;
+        this.zone = zone;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -29,4 +36,36 @@ public class Competition {
     @Column(name="zone",nullable = false,length = 50)
     private String zone;
 
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getZone() {
+        return zone;
+    }
+
+    public void setZone(String zone) {
+        this.zone = zone;
+    }
 }
