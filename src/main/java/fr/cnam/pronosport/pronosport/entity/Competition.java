@@ -3,7 +3,7 @@ package fr.cnam.pronosport.pronosport.entity;
 
     /**
      * Exemple:
-     * https://docs.jboss.org/hibernate/orm/5.2/userguide/html_single/Hibernate_User_Guide.html
+     *
      */
 import jakarta.persistence.*;
 
