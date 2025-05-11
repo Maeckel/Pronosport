@@ -7,7 +7,7 @@ package fr.cnam.pronosport.pronosport.entity;
      */
 import jakarta.persistence.*;
 
-
+@Table
 @Entity
 public class Competition {
 
@@ -15,8 +15,8 @@ public class Competition {
     public Competition() {
     }
 
-    public Competition(int id, String nom, String type, String zone) {
-        this.id = id;
+    // c'est ce  constructeur qui sera utilisé pour créer l'objet à persister dans la base de donnée à partir des données reçu de l'api
+    public Competition(String nom, String type, String zone) {
         this.nom = nom;
         this.type = type;
         this.zone = zone;
