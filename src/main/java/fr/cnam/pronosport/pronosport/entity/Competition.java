@@ -7,7 +7,7 @@ package fr.cnam.pronosport.pronosport.entity;
      */
 import jakarta.persistence.*;
 
-//@Entity(name = "Competition")
+
 @Entity
 public class Competition {
 

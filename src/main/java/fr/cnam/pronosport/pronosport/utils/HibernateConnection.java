@@ -11,25 +11,22 @@ public class HibernateConnection {
 	private static SessionFactory sessionFactory;
 
 	private HibernateConnection() throws HibernateException {
-		if (sessionFactory == null) {
-//			File f = new File("C:\\WS_JAR\\hibernate.cfg.xml");
-//			File f = new File("C:\\Users\\romss\\Documents\\romain_windows_7\\Tuto\\Programmation\\projet_to_deploy\\Akte08062021\\target\\classes\\hibernate.cfg.xml");
-//			sessionFactory = new Configuration().configure(f).buildSessionFactory();
-			sessionFactory = new Configuration().configure().buildSessionFactory();
+		try {
+			Configuration configuration = new Configuration().configure("hibernate.cfg.xml");
+			sessionFactory = configuration.configure("hibernate.cfg.xml").buildSessionFactory();
 
-//			Properties dbConnectionProperties= new Properties();
-//			try {
-//				dbConnectionProperties.load(ClassLoader.getSystemClassLoader().getResourceAsStream("hibernate.properties"));
-//			} catch (Exception e) {
-//				// TODO: handle exception
-//			}
+
+			System.out.println("Hibernate Configuration Loaded:");
+			System.out.println("User: " + configuration.getProperty("hibernate.connection.username"));
+			System.out.println("URL: " + configuration.getProperty("hibernate.connection.url"));
+
+		} catch (HibernateException e) {
+			System.err.println("Erreur de configuration Hibernate: " + e.getMessage());
+			throw e;
 		}
 	}
 
-	// Design pattern Singleton
-
 	public static synchronized HibernateConnection getInstance() throws HibernateException {
-
 		if (instance == null) {
 			instance = new HibernateConnection();
 		}
@@ -37,12 +34,7 @@ public class HibernateConnection {
 	}
 
 	public Session getSession() throws HibernateException {
-		Session session = sessionFactory.openSession();
-		if (!session.isConnected()) {
-			sessionFactory = new Configuration().configure().buildSessionFactory();
-			session = sessionFactory.openSession();
-		}
-		return session;
+		return sessionFactory.openSession();
 	}
 
 	public static void shutDown() throws HibernateException {
