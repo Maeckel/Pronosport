@@ -19,13 +19,13 @@
 
 
 
-        <mapping class="fr.cnam.pronosport.pronosport.entity.Competition"></mapping>
-        <mapping class="fr.cnam.pronosport.pronosport.entity.Lieux"></mapping>
-        <mapping class="fr.cnam.pronosport.pronosport.entity.Sport"></mapping>
-        <mapping class="fr.cnam.pronosport.pronosport.entity.DatePronostic"></mapping>
-        <mapping class="fr.cnam.pronosport.pronosport.entity.Match"></mapping>
-        <mapping class="fr.cnam.pronosport.pronosport.entity.Commentaire"></mapping>
-        <mapping class="fr.cnam.pronosport.pronosport.entity.DateCommentaire"></mapping>
+        <mapping class="fr.cnam.pronosport.pronosport.model.entity.Competition"></mapping>
+        <mapping class="fr.cnam.pronosport.pronosport.model.entity.Lieux"></mapping>
+        <mapping class="fr.cnam.pronosport.pronosport.model.entity.Sport"></mapping>
+        <mapping class="fr.cnam.pronosport.pronosport.model.entity.DatePronostic"></mapping>
+        <mapping class="fr.cnam.pronosport.pronosport.model.entity.Match"></mapping>
+        <mapping class="fr.cnam.pronosport.pronosport.model.entity.Commentaire"></mapping>
+        <mapping class="fr.cnam.pronosport.pronosport.model.entity.DateCommentaire"></mapping>
 
 
     </session-factory>

@@ -1,4 +1,4 @@
-package fr.cnam.pronosport.pronosport.entity;
+package fr.cnam.pronosport.pronosport.model.entity;
 
 
     /**
@@ -7,7 +7,7 @@ package fr.cnam.pronosport.pronosport.entity;
      */
 import jakarta.persistence.*;
 
-@Table
+@Table(name = "Competition")
 @Entity
 public class Competition {
 
@@ -27,13 +27,13 @@ public class Competition {
     private int id;
 
 
-    @Column(name = "nom",nullable = false,length = 50)
+    @Column(name = "nom",nullable = false,length = 50 ,unique = true)
     private String nom;
 
-    @Column(name = "type",nullable = false,length = 50)
+    @Column(name = "type",nullable = false,length = 50 ,unique = true)
     private String type;
 
-    @Column(name="zone",nullable = false,length = 50)
+    @Column(name="zone",nullable = false,length = 50,unique = true)
     private String zone;
 
 

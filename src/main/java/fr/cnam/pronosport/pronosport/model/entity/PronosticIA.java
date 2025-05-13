@@ -1,3 +1,5 @@
+package fr.cnam.pronosport.pronosport.model.entity;
+
 /**
  * 
  */
