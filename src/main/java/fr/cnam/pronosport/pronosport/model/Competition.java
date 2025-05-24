@@ -1,4 +1,4 @@
-package fr.cnam.pronosport.pronosport.model.entity;
+package fr.cnam.pronosport.pronosport.model;
 
 
     /**
@@ -6,6 +6,8 @@ package fr.cnam.pronosport.pronosport.model.entity;
      *
      */
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Table(name = "Competition")
 @Entity
@@ -20,6 +22,7 @@ public class Competition {
         this.nom = nom;
         this.type = type;
         this.zone = zone;
+
     }
 
     @Id
@@ -35,7 +38,12 @@ public class Competition {
 
     @Column(name="zone",nullable = false,length = 50,unique = true)
     private String zone;
+    // Ici une compétition peux avoir 1 ou plusieurs match
+// Relation OneToMany avec Match
 
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "competition_id")
+    private List<Match> matches;
 
     public int getId() {
         return id;

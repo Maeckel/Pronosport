@@ -1,6 +1,6 @@
 package fr.cnam.pronosport.pronosport.controller;
 
-import fr.cnam.pronosport.pronosport.model.entity.Competition;
+import fr.cnam.pronosport.pronosport.model.Competition;
 import fr.cnam.pronosport.pronosport.service.CompetitionService;
 
 import java.util.List;
@@ -13,7 +13,7 @@ public class CompetitionControllerImpl implements CompetitionController {
 
     public CompetitionControllerImpl(CompetitionService competitionService) {
         this.competitionService = competitionService;
-        System.out.println("apiclient  instancié !");
+
     }
 
     @Override

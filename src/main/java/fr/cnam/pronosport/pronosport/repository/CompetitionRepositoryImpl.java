@@ -1,7 +1,6 @@
 package fr.cnam.pronosport.pronosport.repository;
 
-import fr.cnam.pronosport.pronosport.model.entity.Competition;
-import fr.cnam.pronosport.pronosport.utils.HibernateConnection;
+import fr.cnam.pronosport.pronosport.model.Competition;
 import org.hibernate.Session;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package fr.cnam.pronosport.pronosport.model.entity;
+package fr.cnam.pronosport.pronosport.model;
 
 
 public class Lieux {

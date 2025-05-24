@@ -1,7 +1,7 @@
 package fr.cnam.pronosport.pronosport.service;
 
 import fr.cnam.pronosport.pronosport.dto.ApiCompetitionDto;
-import fr.cnam.pronosport.pronosport.model.entity.Competition;
+import fr.cnam.pronosport.pronosport.model.Competition;
 import fr.cnam.pronosport.pronosport.repository.CompetitionRepository;
 
 import java.util.List;

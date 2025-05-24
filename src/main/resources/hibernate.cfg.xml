@@ -6,6 +6,8 @@
     <session-factory>
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/pronosport?useSSL=false&amp;allowPublicKeyRetrieval=true</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">java123</property>
 
@@ -19,13 +21,13 @@
 
 
 
-        <mapping class="fr.cnam.pronosport.pronosport.model.entity.Competition"></mapping>
-        <mapping class="fr.cnam.pronosport.pronosport.model.entity.Lieux"></mapping>
-        <mapping class="fr.cnam.pronosport.pronosport.model.entity.Sport"></mapping>
-        <mapping class="fr.cnam.pronosport.pronosport.model.entity.DatePronostic"></mapping>
-        <mapping class="fr.cnam.pronosport.pronosport.model.entity.Match"></mapping>
-        <mapping class="fr.cnam.pronosport.pronosport.model.entity.Commentaire"></mapping>
-        <mapping class="fr.cnam.pronosport.pronosport.model.entity.DateCommentaire"></mapping>
+        <mapping class="fr.cnam.pronosport.pronosport.model.Competition"></mapping>
+        <mapping class="fr.cnam.pronosport.pronosport.model.Lieux"></mapping>
+        <mapping class="fr.cnam.pronosport.pronosport.model.Sport"></mapping>
+        <mapping class="fr.cnam.pronosport.pronosport.model.DatePronostic"></mapping>
+        <mapping class="fr.cnam.pronosport.pronosport.model.Match"></mapping>
+        <mapping class="fr.cnam.pronosport.pronosport.model.Commentaire"></mapping>
+        <mapping class="fr.cnam.pronosport.pronosport.model.DateCommentaire"></mapping>
 
 
     </session-factory>

@@ -1,6 +1,6 @@
 package fr.cnam.pronosport.pronosport.controller;
 
-import fr.cnam.pronosport.pronosport.model.entity.Competition;
+import fr.cnam.pronosport.pronosport.model.Competition;
 
 import java.util.List;
 

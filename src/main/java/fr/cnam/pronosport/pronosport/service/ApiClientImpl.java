@@ -25,7 +25,7 @@ public class ApiClientImpl implements ApiClient {
     public ApiCompetitionDto[] getAllCompetitions() throws Exception {
          final Logger LOGGER = Logger.getLogger(ApiClientImpl.class.getName());
 
-
+        // UnsafeHttpClientFactory sert à contrer la  vérification juste pour le développement
         HttpClient client = UnsafeHttpClientFactory.createUnsafeHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://api.football-data.org/v4/competitions"))
