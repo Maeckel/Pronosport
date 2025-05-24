@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 
 import java.util.Date;
 
-@Table(name = "Matches")
+@Table(name = "Matche")
 @Entity
 public class Match {
 
