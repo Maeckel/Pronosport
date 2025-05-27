@@ -9,7 +9,10 @@ import jakarta.persistence.*;
 
 import java.util.List;
 
-@Table(name = "Competition")
+@Table(
+        name = "Competition",
+        uniqueConstraints = @UniqueConstraint(columnNames = {"nom", "zone"})
+)
 @Entity
 public class Competition {
 
@@ -30,13 +33,13 @@ public class Competition {
     private int id;
 
 
-    @Column(name = "nom",nullable = false,length = 50 ,unique = true)
+    @Column(name = "nom",nullable = false,length = 50 )
     private String nom;
 
-    @Column(name = "type",nullable = false,length = 50 ,unique = true)
+    @Column(name = "type",nullable = false,length = 50)
     private String type;
 
-    @Column(name="zone",nullable = false,length = 50,unique = true)
+    @Column(name="zone",nullable = false,length = 50)
     private String zone;
     // Ici une compétition peux avoir 1 ou plusieurs match
 // Relation OneToMany avec Match

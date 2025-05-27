@@ -33,5 +33,10 @@ public class CompetitionControllerImpl implements CompetitionController {
         competitionService.add(competition);
     }
 
+    @Override
+    public List<String> getAllZones() throws Exception {
+        return competitionService.getAllZones() ;
+    }
+
 
 }

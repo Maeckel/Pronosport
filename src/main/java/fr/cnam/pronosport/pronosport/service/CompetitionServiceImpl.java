@@ -69,5 +69,10 @@ public class CompetitionServiceImpl implements CompetitionService {
         competitionRepository.addCompetition(competition);
     }
 
+    @Override
+    public List<String> getAllZones() throws Exception {
+       return competitionRepository.getAllZones();
+    }
+
 
 }

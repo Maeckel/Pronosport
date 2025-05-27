@@ -2,7 +2,10 @@ package fr.cnam.pronosport.pronosport.controller;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 import fr.cnam.pronosport.pronosport.model.Competition;
 import fr.cnam.pronosport.pronosport.repository.CompetitionRepository;
@@ -14,82 +17,79 @@ import fr.cnam.pronosport.pronosport.service.CompetitionServiceImpl;
 import fr.cnam.pronosport.pronosport.utils.DisableSslVerification;
 import fr.cnam.pronosport.pronosport.utils.HibernateConnection;
 import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
-@WebServlet(name = "helloServlet", value = "/hello-servlet")
-public class HelloServlet extends HttpServlet {
+/*
+    Cheminement: Contrôleur  --->  Service  --->  Repository  --->  Base de données
+
+    Le contrôleur reçoit la requête (par exemple, d’une servlet, d’un endpoint REST ou d’une interface graphique).
+
+    Le service fait tout le travail métier (appels repository, transformation, logique métier).
+
+    Le repository ne sert qu’à accéder à la base de données.
+
+*/
+
+    @WebServlet(name = "CompetitionServlet", value = "/competition-servlet")
+public class CompetitionServlet extends HttpServlet {
     private String message;
 
     private CompetitionController competitionController;
 
-    public HelloServlet() {
-        System.out.println("HelloServlet instancié !");
+    public CompetitionServlet() {
+            System.out.println("Competition servlet instancié !");
     }
 
     //TestMySQLConnection con = new TestMySQLConnection();
     @Override
     public void init() {
+        //Désactivation de la verification ssl juste pour le developpement
         DisableSslVerification.disable();
         // Initialisation en une seule fois
         ApiClient apiClient = new ApiClientImpl();
         CompetitionRepository repository = new CompetitionRepositoryImpl();
+        //Injection de dépendance
         CompetitionService service = new CompetitionServiceImpl(repository, apiClient);
 
+
         // Import des compétitions depuis l'API
-        try {
+        /*try {
             service.importCompetitionsFromApi();
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
 
         competitionController = new CompetitionControllerImpl(service);
 
     }
 
-
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
 
-
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-        // tester la connection à la base de donnée
-            /*try (Connection conn = TestMySQLConnection.getConnection()) {
-                //conn.prepareStatement("create table");
-                //response.getWriter().println("Connexion réussie !");
-            } catch (SQLException e) {
-                response.getWriter().println("Erreur de connexion : " + e.getMessage());
-            }*/
-
-        try {
-            // connection à la base de donnée et mapping avec hibernate
-            response.getWriter().println("Connexion hibernate réussie ! ");
-            HibernateConnection.getInstance().getSession();
-        } catch (Exception e) {
-            response.getWriter().println("Erreur de connexion : " + e.getMessage());
-
-        }
-
         try {
             // Simule une demande  voir la liste des compétitions
-            List<String> ZoneNames = new ArrayList<String>();
 
             List<Competition> competitions = competitionController.getAllCompetitions();
 
+            // regroupe les compétitions par zone
+            Map<String, List<Competition>> competitionsParZone = competitions.stream()
+                    .collect(Collectors.groupingBy(Competition::getZone));
 
-            request.setAttribute("competitions", competitions);
+
+            request.setAttribute("competitionsParZone", competitionsParZone);
+
+
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("competitions.jsp");
             requestDispatcher.forward(request, response);
+            //Pour tester:
             // Renvois les compétitions en JSON
             //response.getWriter().write(new Gson().toJson(competitions));
         } catch (Exception e) {
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e.getMessage());
         }
-
-
     }
+
+
 }

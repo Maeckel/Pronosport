@@ -2,12 +2,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSP - Hello World</title>
+    <title> Competition </title>
 </head>
 <body>
-<h1><%= "Hello World!" %>
-</h1>
+<h1>Choisissez vos sports</h1>
 <br/>
-<a href="hello-servlet">Hello Servlet</a>
+<a href="competition-servlet">Hello Servlet</a>
 </body>
 </html>
