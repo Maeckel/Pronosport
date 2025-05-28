@@ -21,6 +21,7 @@ public class MatchServlet extends HttpServlet {
             request.setAttribute("CompetitionsId", selectedCompetitionsId);
             // Les différent id des compétitions  sont partagé ici et envoyé à match.jsp
             System.out.println("selectedCompetitionsId: " + Arrays.toString(selectedCompetitionsId));
+            // parsInt parceque l'on a un array de String
             request.getRequestDispatcher("matches.jsp").forward(request, response);
         }
     }
