@@ -19,5 +19,22 @@
 <body>
 <h1> Matchs  sélectionnés </h1>
 <span>  <%=Arrays.toString(competitionsId)%>> </span>
+<div class ="max-w-lg mx-auto p-4 bg-white rounded-lg shadow">
+    <div class="flex justify-between items-center mb-4">
+        <h2 class="text-xl font-bold">Mes pronostics</h2>
+        <div class="flex space-x-2">
+            <button
+            class="p-2 rounded-full bg-gray-100 hover:bg-gray-200"
+            >
+            <Filter size={20} />
+            </button>
+            <button
+                class="p-2 rounded-full bg-gray-100 hover:bg-gray-200"
+            >
+                <img src="images/refresh_480px.png"  class="w-48 h-48" alt="Refresh logo">
+            </button>
+        </div>
+    </div>
+</div>
 </body>
 </html>

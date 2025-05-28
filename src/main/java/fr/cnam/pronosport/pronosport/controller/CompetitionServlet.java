@@ -47,12 +47,17 @@ public class CompetitionServlet extends HttpServlet {
     public void init() {
         //Désactivation de la verification ssl juste pour le developpement
         DisableSslVerification.disable();
+
+
         // Initialisation en une seule fois
+        // création des instances apiClient et repository
         ApiClient apiClient = new ApiClientImpl();
         CompetitionRepository repository = new CompetitionRepositoryImpl();
-        //Injection de dépendance
-        CompetitionService service = new CompetitionServiceImpl(repository, apiClient);
 
+        /*Injection de dépendance  bonne pratique évite le couplage fort c'est à dire dépendance d'une classe par rapport à une autre (éviter de créer une instance d' une classe dans la classe qui en a besoin pour faire ses opérations
+         Ici on utilise le constructeur de  CompetitionServiceImpl pour injecter l'objet repository et apiClient en tant qu'argument pour que l'objet de la classe CompetitionServiceImpl puisse appeler les methodes  comme par exemple
+         competitionRepository.getAllCompetitions() ou toute autre method liée à cette classe  ( Pour comprendre voir dans la classe   la déclaration de competitionRepository et ou est utilisé competitionRepository.getAllCompetitions()*/
+        CompetitionService service = new CompetitionServiceImpl(repository, apiClient);
 
         // Import des compétitions depuis l'API
         /*try {

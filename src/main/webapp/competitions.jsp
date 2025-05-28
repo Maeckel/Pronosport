@@ -68,7 +68,7 @@
 
         type="submit"
         >
-            <%-- if(hasSelection)? "" : disabled--%>
+            <%-- if(hasSelections)? "" : disabled--%>
         Valider
         </button>
 
