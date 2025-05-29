@@ -47,19 +47,20 @@ public class Match {
     private String pronostic;
 
 
-
-
     @Column(name = "compositionEquipeA",nullable = false,length = 50 )
-    private void compositionEquipeA(){
+    private String compositionEquipeA;
 
-    };
 
 
     @Column(name = "compositionEquipeB",nullable = false,length = 50 )
-    private void compositionEquipeB(){
+    private String compositionEquipeB;
 
 
-    };
+    @ManyToOne
+    @JoinColumn(name = "competition_id") // clé étrangère dans la table Match
+    private Competition competition;
+
+
 
     public int getId() {
         return id;
@@ -107,5 +108,29 @@ public class Match {
 
     public void setPronostic(String pronostic) {
         this.pronostic = pronostic;
+    }
+
+    public String getCompositionEquipeA() {
+        return compositionEquipeA;
+    }
+
+    public void setCompositionEquipeA(String compositionEquipeA) {
+        this.compositionEquipeA = compositionEquipeA;
+    }
+
+    public String getCompositionEquipeB() {
+        return compositionEquipeB;
+    }
+
+    public void setCompositionEquipeB(String compositionEquipeB) {
+        this.compositionEquipeB = compositionEquipeB;
+    }
+
+    public Competition getCompetition() {
+        return competition;
+    }
+
+    public void setCompetition(Competition competition) {
+        this.competition = competition;
     }
 }

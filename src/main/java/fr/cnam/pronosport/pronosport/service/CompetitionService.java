@@ -12,5 +12,5 @@ public interface CompetitionService {
     List<Competition> getAll() throws Exception;
 
     void add(Competition competition) throws Exception;
-    List<String> getAllZones() throws Exception ;
+
 }

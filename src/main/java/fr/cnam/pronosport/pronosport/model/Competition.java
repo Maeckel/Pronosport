@@ -45,7 +45,7 @@ public class Competition {
 // Relation OneToMany avec Match
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "competition_id")
+    @JoinColumn(name = "competition_id") // clé étrangère dans la table Match
     private List<Match> matches;
 
     public int getId() {

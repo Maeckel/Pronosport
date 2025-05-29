@@ -27,19 +27,6 @@ public class CompetitionRepositoryImpl extends AbstractEntityFacade<Competition>
         this.add(competition); // Utilise la méthode de la classe abstraite (qui gère bien la session)
     }
 
-    @Override
-    public List<String> getAllZones() throws Exception {
-        try (Session session = HibernateConnection.getInstance().getSession()) {
-            return session.createQuery("from Competition c select c.zone",String.class).getResultList();
-        }
-
-    }
-
-    // requête  spécifique à la compétition et au match
-    /*List<Object[]> getMatchesFromCompetition(Competition competition) {
-        Session session= HibernateConnection.getInstance().getSession();
-        return session.createQuery("SELECT c,m FROM Competition c JOIN c.matche m",Object [].class).getResultList();
-     }*/
 
 
 }
