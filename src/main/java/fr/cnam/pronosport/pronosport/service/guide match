@@ -1,0 +1,41 @@
+
+url à utiliser http://api.football-data.org/v4/matches
+
+le lien entre le match et la compétition
+
+
+// On a déjà  toutes données des compétitions dans la base de données
+List<Competition> competitions = competitionRepository.findAll();
+
+// Pour chaque match de l’API
+for (ApiMatchDto apiMatch : apiMatches) {
+
+    // Trouver la compétition correspondante (exemple via le nom)
+    // apiMatch.getCompetition().getName()
+    // apiMatch.getCompetition().getType()
+    // apiMatch.getCompetition().getArea().getName()
+
+    /*la classe ApiMatchDto s'occupe de récupére les données du match  mais dans notre cas on doit récupérer  la compétition associé à chaque matchs pour la comparaison
+    on récupère les données des compétitions associé au match juste pour faire la comparaison ces données ne seront pas  utilisé et  associé  à la table Match dans la base de donnée*/
+    si la compétition trouvé dans le json  concernant le match est égale à la compétition trouvé dans la base de donnée alors on construit l'objet match JPA/Hibernate s’occupe d’insérer la clé étrangère (competition_id) dans la table Match lors de la persistance
+
+    Competition competition = competitions.stream()
+        .filter(c -> c.getNom().equals(apiMatch.getCompetition().getName())
+                  && c.getType().equals(apiMatch.getCompetition().getType())
+                  && c.getZone().equals(apiMatch.getCompetition().getArea().getName()))
+        .findFirst()
+        .orElseThrow(() -> new RuntimeException("Compétition non trouvée"));
+
+    // Créer l'objet  match
+    Match match = new Match();
+    // ... set les autres champs du match
+    match.setCompetition(competition); // Association. JPA/Hibernate s’occupe d’insérer la clé étrangère (competition_id) dans la table Match lors de la persistance.
+    // setCompetition vient de la classe Match
+
+    /*@ManyToOne
+        @JoinColumn(name = "competition_id") // clé étrangère competition_id dans la table Match
+        private Competition competition;*/
+
+    matchRepository.save(match);
+}
+
