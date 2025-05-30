@@ -13,8 +13,7 @@ public class Match {
     public Match() {
     }
 
-    public Match( int minute, String status, String score, Date date_heure, String pronostic) {
-        this.id = id;
+    public Match(int minute, String status, String score, Date date_heure, String pronostic) {
         this.minute = minute;
         this.status = status;
         this.score = score;
