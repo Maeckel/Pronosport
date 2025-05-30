@@ -1,11 +1,12 @@
 
+Dans MatchServiceImpl
 url à utiliser http://api.football-data.org/v4/matches
 
 le lien entre le match et la compétition
 
 
-// On a déjà  toutes données des compétitions dans la base de données
-List<Competition> competitions = competitionRepository.findAll();
+// On a déjà  toutes  les données des compétitions dans la base de données
+List<Competition> competitions = competitionRepository.getAllCompetitions();
 
 // Pour chaque match de l’API
 for (ApiMatchDto apiMatch : apiMatches) {
