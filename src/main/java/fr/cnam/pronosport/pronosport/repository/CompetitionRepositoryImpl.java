@@ -1,6 +1,7 @@
 package fr.cnam.pronosport.pronosport.repository;
 
 import fr.cnam.pronosport.pronosport.model.Competition;
+import fr.cnam.pronosport.pronosport.model.Match;
 import fr.cnam.pronosport.pronosport.utils.HibernateConnection;
 import org.hibernate.Session;
 
@@ -26,6 +27,7 @@ public class CompetitionRepositoryImpl extends AbstractEntityFacade<Competition>
     public void addCompetition(Competition competition) throws Exception {
         this.add(competition); // Utilise la méthode de la classe abstraite (qui gère bien la session)
     }
+
 
 
 

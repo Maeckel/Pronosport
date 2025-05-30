@@ -30,7 +30,7 @@ public class Competition {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
 
     @Column(name = "nom",nullable = false,length = 50 )
@@ -42,8 +42,9 @@ public class Competition {
     @Column(name="zone",nullable = false,length = 50)
     private String zone;
     // Ici une compétition peux avoir 1 ou plusieurs match
-// Relation OneToMany avec Match
 
+// Relation OneToMany avec Match
+// Table Competition
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "competition_id") // clé étrangère dans la table Match
     private List<Match> matches;

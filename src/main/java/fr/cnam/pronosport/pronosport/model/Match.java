@@ -13,7 +13,7 @@ public class Match {
     public Match() {
     }
 
-    public Match(int id, int minute, String status, String score, Date date_heure, String pronostic) {
+    public Match( int minute, String status, String score, Date date_heure, String pronostic) {
         this.id = id;
         this.minute = minute;
         this.status = status;
@@ -24,7 +24,7 @@ public class Match {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @Column(name = "minute",nullable = false,length = 50 )
     private int minute;
@@ -55,7 +55,7 @@ public class Match {
     @Column(name = "compositionEquipeB",nullable = false,length = 50 )
     private String compositionEquipeB;
 
-
+    // Table Match
     @ManyToOne
     @JoinColumn(name = "competition_id") // clé étrangère dans la table Match
     private Competition competition;

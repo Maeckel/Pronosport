@@ -3,9 +3,20 @@ package fr.cnam.pronosport.pronosport.controller;
 import fr.cnam.pronosport.pronosport.model.Match;
 import fr.cnam.pronosport.pronosport.service.CompetitionService;
 
-/*public class MatchControllerImpl implements MatchController {
+import java.util.List;
 
-    Cheminement: Contrôleur  --->  Service  --->  Repository  --->  Base de données
+public class MatchControllerImpl implements MatchController {
+    @Override
+    public Match getMatchById(int id) throws Exception {
+        return null;
+    }
+
+    @Override
+    public List<Match> getMatchesForCompetitions(List<Long> competitionIds) throws Exception {
+        return null;
+    }
+
+    /*Cheminement: Contrôleur  --->  Service  --->  Repository  --->  Base de données
 
     Le contrôleur reçoit la requête (par exemple, d’une servlet, d’un endpoint REST ou d’une interface graphique).
 
@@ -23,4 +34,9 @@ import fr.cnam.pronosport.pronosport.service.CompetitionService;
     //5.créer  les signatures  des methodes pour match dans ApiClient
     //6.implémenter les méthodes de match dans ApiClientImpl
 
-}*/
+*/
+
+
+
+
+}
