@@ -15,6 +15,7 @@ public class MatchControllerImpl implements MatchController {
 
     }
 
+
     @Override
     public Match getMatchById(int id) throws Exception {
 

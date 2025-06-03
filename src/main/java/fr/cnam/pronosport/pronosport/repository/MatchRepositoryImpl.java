@@ -17,6 +17,7 @@ public class MatchRepositoryImpl extends AbstractEntityFacade<Match> implements 
         }
     }
 
+
     @Override
     public List<Match> getAllMatchs() throws Exception {
         return this.getAll(Match.class); // Appelle la méthode générique de la classe abstraite
