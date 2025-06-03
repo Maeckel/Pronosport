@@ -19,6 +19,7 @@ import java.util.List;
     Le service fait tout le travail métier (appels repository, transformation, logique métier).
 
     Le repository ne sert qu’à accéder à la base de données.
+
  */
 public class MatchServiceImpl implements MatchService {
 // injection de dépendance
