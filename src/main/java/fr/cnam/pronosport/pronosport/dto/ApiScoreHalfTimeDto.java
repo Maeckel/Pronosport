@@ -27,6 +27,7 @@ public class ApiScoreHalfTimeDto {
         this.away = away;
     }
 
+
     }
 
     

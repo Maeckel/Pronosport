@@ -14,7 +14,6 @@ public class ApiAwayTeamDto {
     public void setName(String name) {
         this.name = name;
     }
-    
 
     }
 

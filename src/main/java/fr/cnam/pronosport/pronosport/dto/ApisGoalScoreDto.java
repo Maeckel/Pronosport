@@ -27,5 +27,6 @@ public class ApisGoalScoreDto {
     public void setHome(int home) {
         this.home = home;
     }
+
     
 }

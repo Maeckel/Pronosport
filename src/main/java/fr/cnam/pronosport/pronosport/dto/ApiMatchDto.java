@@ -30,6 +30,8 @@ public class ApiMatchDto {
     @SerializedName("goals")
     ApiMatchCompetitionDto goals ;
 
+
+
     public ApiMatchCompetitionDto getCompetition() {
         return competition;
     }

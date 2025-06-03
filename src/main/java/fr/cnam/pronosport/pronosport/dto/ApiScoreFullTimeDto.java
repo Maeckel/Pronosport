@@ -26,6 +26,7 @@ public class ApiScoreFullTimeDto {
         this.away = away;
     }
 
+
     }
 
     

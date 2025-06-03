@@ -25,5 +25,6 @@ public class GoalDto {
     public void setScore(ApisGoalScoreDto score) {
         this.score = score;
     }
+
     
 }

@@ -31,5 +31,4 @@ public class ApiMatchCompetitionDto {
         this.name = name;
     }
 
-
 }

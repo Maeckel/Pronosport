@@ -18,6 +18,7 @@ public class ApiScoreDto {
 
 
 
+
     public int getAway() {
         return away;
     }
