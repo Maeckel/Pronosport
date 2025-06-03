@@ -16,10 +16,6 @@ la Balise  <T> permet de définir une classe générique et permet d'avoir une c
 
 public abstract class AbstractEntityFacade<T> implements IEntityFacade<T> {
 	
-	//private Session session = HibernateConnection.getInstance().getSession();
-
-
-
 
 		@Override
 		public T add(T entity) throws Exception {

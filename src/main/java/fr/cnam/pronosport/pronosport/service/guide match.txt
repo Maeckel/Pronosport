@@ -2,12 +2,16 @@
 //Dans MatchServiceImpl
 //url à utiliser http://api.football-data.org/v4/matches
 
-//le lien entre le match et la compétition
+
 
 
 // On a déjà  toutes  les données des compétitions dans la base de données
 List<Competition> competitions = competitionRepository.getAllCompetitions();
-On 
+
+//On doit connaître la compétition associé au match et l'url qui nous donne cette info
+//List matches across (a set of) competitions.
+//url à utiliser http://api.football-data.org/v4/matches
+
 Dans ApiMatchDto on récupère les données de chaque  match ainsi que la compétition qui lui est associé ( les données de la compète ne servent que à voir  le match qui lui  est associé ne sera pas utilisé pour la base de donnée
 
 // Pour chaque match de l’API
@@ -18,7 +22,7 @@ for (ApiMatchDto apiMatch : apiMatches) {
     // apiMatch.getCompetition().getType()
     // apiMatch.getCompetition().getArea().getName()
 
-    /*la classe ApiMatchDto s'occupe de récupére les données du match  mais dans notre cas on doit récupérer  la compétition associé à chaque matchs pour la comparaison
+    /*la classe ApiMatchDto s'occupe de récupéré les données du match  mais dans notre cas on doit récupérer  la compétition associé à chaque matchs pour la comparaison
     on récupère les données des compétitions associé au match juste pour faire la comparaison ces données ne seront pas  utilisé et  associé  à la table Match dans la base de donnée*/
     si la compétition trouvé dans le json  concernant le match est égale à la compétition trouvé dans la base de donnée alors on construit l'objet match JPA/Hibernate s’occupe d’insérer la clé étrangère (competition_id) dans la table Match lors de la persistance
 
