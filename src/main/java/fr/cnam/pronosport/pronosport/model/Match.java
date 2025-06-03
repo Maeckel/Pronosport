@@ -13,7 +13,7 @@ public class Match {
     public Match() {
     }
 
-    public Match(int minute, String status, String score, Date date_heure, String pronostic) {
+    public Match(int minute, String status, Integer score, Date date_heure, String pronostic) {
         this.minute = minute;
         this.status = status;
         this.score = score;
@@ -34,7 +34,7 @@ public class Match {
 
 
     @Column(name = "score",nullable = false,length = 50 )
-    private String score;
+    private Integer score;
 
 
     @Temporal(TemporalType.DATE)
@@ -85,11 +85,11 @@ public class Match {
         this.status = status;
     }
 
-    public String getScore() {
+    public Integer getScore() {
         return score;
     }
 
-    public void setScore(int score) {
+    public void setScore(Integer score) {
         this.score = score;
     }
 
