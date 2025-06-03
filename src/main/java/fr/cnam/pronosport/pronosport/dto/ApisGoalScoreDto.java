@@ -10,6 +10,7 @@ public class ApisGoalScoreDto {
     @SerializedName("home")
     private int home;
 
+
     public int getAway() {
         return away;
     }
@@ -21,6 +22,7 @@ public class ApisGoalScoreDto {
     public int getHome() {
         return home;
     }
+
 
     public void setHome(int home) {
         this.home = home;

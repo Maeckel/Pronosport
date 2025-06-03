@@ -1,7 +1,13 @@
 package fr.cnam.pronosport.pronosport.dto;
 
+import com.google.gson.annotations.SerializedName;
+
 public class GoalDto {
+
+    @SerializedName("minute")
     private int minute;
+
+    @SerializedName("score")
     private ApisGoalScoreDto score;
 
     public int getMinute() {

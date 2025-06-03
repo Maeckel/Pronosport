@@ -16,6 +16,8 @@ public class ApiScoreDto {
     @SerializedName("fullTime")
     private ApiScoreFullTimeDto fullTime;
 
+
+
     public int getAway() {
         return away;
     }

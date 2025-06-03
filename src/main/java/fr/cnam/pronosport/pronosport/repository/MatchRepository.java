@@ -9,6 +9,7 @@ Ici on définit les signatures des fonctions qui vont être implémentées dans 
 permet d'avoir des noms définit
 */
 
+
 public interface MatchRepository {
     Match getMatchById(int id) throws Exception ;
     List<Match> getAllMatchs() throws Exception ;

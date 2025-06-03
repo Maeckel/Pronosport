@@ -6,10 +6,7 @@ package fr.cnam.pronosport.pronosport.dto;
 
 import com.google.gson.annotations.SerializedName;
 
-/**
- *
- * @author Adama BAH
- */
+
 public class ApiMatchCompetitionDto {
     @SerializedName("name")
     private String name;

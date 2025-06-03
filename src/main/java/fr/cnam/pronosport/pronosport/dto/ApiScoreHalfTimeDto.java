@@ -4,6 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class ApiScoreHalfTimeDto {
 
+
     @SerializedName("home")
     private String home;
     
