@@ -14,6 +14,5 @@ public interface MatchRepository {
     List<Match> getAllMatchs() throws Exception ;
     void addMatch(Match match) throws Exception;
 
-
     List<Match> getMatchesForCompetitions(List<Integer> competitionIds);
 }
