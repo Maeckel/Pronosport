@@ -36,15 +36,15 @@ public class MatchServiceImpl implements MatchService {
     public void importMatchsFromApi() throws Exception {
         // 1. Appel à l’API externe
         List<ApiMatchDto> apiMatchs = List.of(apiClient.getAllMatchs());
-        CompetitionRepository competitionRepository = new CompetitionRepositoryImpl(); 
+        CompetitionRepository competitionRepository = new CompetitionRepositoryImpl();
         // à injecter par le constructeur
         List<Competition> competitions = competitionRepository.getAllCompetitions();
 
         // Pour chaque match de l’API
-        for (ApiMatchDto apiMatch : apiMatchs) {          
+        for (ApiMatchDto apiMatch : apiMatchs) {
             Competition competition = competitions.stream()
                     .filter(c -> c.getNom().equals(apiMatch.getCompetition().getName())
-                    && c.getType().equals(apiMatch.getCompetition().getType()))
+                            && c.getType().equals(apiMatch.getCompetition().getType()))
                     .findFirst()
                     .orElseThrow(() -> new RuntimeException("Compétition non trouvée"));
 
@@ -60,8 +60,12 @@ public class MatchServiceImpl implements MatchService {
             /*@ManyToOne
         @JoinColumn(name = "competition_id") // clé étrangère competition_id dans la table Match
         private Competition competition;*/
+
+            // 2. Transformation et persistence
             matchRepository.addMatch(match);
+
         }
+    }
 
         // 2. Transformation et persistence
        
