@@ -67,10 +67,6 @@ public class MatchServiceImpl implements MatchService {
         }
     }
 
-        // 2. Transformation et persistence
-       
-    }
-
     @Override
     public Match getById(int id) throws Exception {
 
